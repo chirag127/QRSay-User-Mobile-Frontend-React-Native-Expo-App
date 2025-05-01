@@ -12,30 +12,31 @@ import {
     ForgotPasswordScreen,
     WhatsAppLoginScreen,
 } from "../screens/auth";
-import { ProfileScreen } from "../screens/profile";
+import {
+    ProfileScreen,
+    EditProfileScreen,
+    AddressesScreen,
+    SettingsScreen,
+} from "../screens/profile";
 import {
     HomeScreen,
     QRScannerScreen,
     RestaurantDetailScreen,
     MenuScreen,
+    DishDetailScreen,
 } from "../screens/home";
+import { SearchScreen, SearchResultsScreen } from "../screens/search";
+import { CartScreen, CheckoutScreen, PaymentScreen } from "../screens/cart";
+import {
+    OrdersScreen,
+    OrderDetailScreen,
+    OrderTrackingScreen,
+} from "../screens/orders";
 import * as navigationTypes from "./navigationTypes";
 
 // Create navigators
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-/**
- * Placeholder screen component for development
- */
-const PlaceholderScreen = ({ route }) => (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 18, marginBottom: 20 }}>
-            {route.name} Screen - Coming Soon
-        </Text>
-        <Text>This screen will be implemented in the next phase.</Text>
-    </View>
-);
 
 /**
  * Auth Navigator - Handles authentication screens
@@ -107,7 +108,7 @@ const HomeNavigator = () => {
             />
             <Stack.Screen
                 name={navigationTypes.HOME_STACK.DISH_DETAIL}
-                component={PlaceholderScreen}
+                component={DishDetailScreen}
                 options={({ route }) => ({
                     title: route.params?.dish?.dishName || "Dish",
                     headerBackTitle: "Menu",
@@ -133,12 +134,12 @@ const SearchNavigator = () => (
     <Stack.Navigator>
         <Stack.Screen
             name="SearchScreen"
-            component={PlaceholderScreen}
+            component={SearchScreen}
             options={{ title: "Search" }}
         />
         <Stack.Screen
             name="SearchResults"
-            component={PlaceholderScreen}
+            component={SearchResultsScreen}
             options={{ title: "Results" }}
         />
     </Stack.Navigator>
@@ -151,17 +152,17 @@ const CartNavigator = () => (
     <Stack.Navigator>
         <Stack.Screen
             name="CartScreen"
-            component={PlaceholderScreen}
+            component={CartScreen}
             options={{ title: "Cart" }}
         />
         <Stack.Screen
             name="Checkout"
-            component={PlaceholderScreen}
+            component={CheckoutScreen}
             options={{ title: "Checkout" }}
         />
         <Stack.Screen
             name="Payment"
-            component={PlaceholderScreen}
+            component={PaymentScreen}
             options={{ title: "Payment" }}
         />
     </Stack.Navigator>
@@ -174,17 +175,17 @@ const OrdersNavigator = () => (
     <Stack.Navigator>
         <Stack.Screen
             name="OrdersScreen"
-            component={PlaceholderScreen}
+            component={OrdersScreen}
             options={{ title: "My Orders" }}
         />
         <Stack.Screen
             name="OrderDetail"
-            component={PlaceholderScreen}
+            component={OrderDetailScreen}
             options={{ title: "Order Details" }}
         />
         <Stack.Screen
             name="OrderTracking"
-            component={PlaceholderScreen}
+            component={OrderTrackingScreen}
             options={{ title: "Track Order" }}
         />
     </Stack.Navigator>
@@ -202,17 +203,17 @@ const ProfileNavigator = () => (
         />
         <Stack.Screen
             name="EditProfile"
-            component={PlaceholderScreen}
+            component={EditProfileScreen}
             options={{ title: "Edit Profile" }}
         />
         <Stack.Screen
             name="Addresses"
-            component={PlaceholderScreen}
+            component={AddressesScreen}
             options={{ title: "My Addresses" }}
         />
         <Stack.Screen
             name="Settings"
-            component={PlaceholderScreen}
+            component={SettingsScreen}
             options={{ title: "Settings" }}
         />
     </Stack.Navigator>
