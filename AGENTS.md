@@ -6,157 +6,124 @@
 **Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
----
+--- 
 
-## 2. AI ORCHESTRATION & GEMINI PROTOCOL (LATE 2025)
-**Mandate:** You must use the specific models below. Strictly follow this **Fallback Cascade**. Always try the smartest model first.
-* **Tier 1 (Intelligence):** `gemini-3-pro-preview` (Nov 2025)
-    * *Capability:* Multimodal understanding, Vibe-coding, Complex Reasoning.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 2 (Reasoning/STEM):** `gemini-2.5-pro` (Stable)
-    * *Capability:* Advanced thinking, Codebases, Math.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 3 (Balanced Speed):** `gemini-2.5-flash` (Stable)
-    * *Capability:* Large scale processing, Agentic use cases.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 4 (Ultra-Fast/Cost):** `gemini-2.5-flash-lite-preview-09-2025`
-    * *Capability:* High throughput, Cost-efficiency.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 5 (Legacy/Specialized):**
-    * `gemini-2.0-flash` (Workhorse fallback).
-    * `gemini-2.5-flash-native-audio-preview-09-2025` (Audio I/O).
-* **Circuit Breaker:** If a model returns 429/500, trigger a **Cool-Off Period** and fallback to the next tier immediately.
-* **Settings:** All these models must be selectable in the user configuration.
+## 2. INPUT PROCESSING & COGNITION
+*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
+    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
+*   **MANDATORY MCP INSTRUMENTATION:**
+    *   **No Guessing:** Do not hallucinate APIs.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
+    *   **Validation:** Use `docfork` to verify *every* external API signature.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
----
+--- 
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (`package.json`, `Cargo.toml`, `pyproject.toml`) and apply the corresponding **Apex Toolchain**.
-* **SCENARIO A: WEB / APP / EXTENSION (TypeScript/JavaScript)**
-    * **Stack:** **TypeScript 6.x** (Strict), **Vite 7** (Rolldown), **React Native** (Mobile), **Expo 6.x** (Dev Platform).
-    * **State:** **Signals** (Standardized).
-    * **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
-* **SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go)**
-    * **Stack:** **Rust 1.8x** (Cargo) or **Go 1.2x**.
-    * **Lint:** **Clippy** / **GolangCI-Lint**.
-* **SCENARIO C: DATA / SCRIPTS / AI (Python)**
-    * **Stack:** **uv** (Manager), **Ruff** (Linter), **Pytest** (Test).
+**Directives:** Detect the project type (e.g., `package.json` for React Native/Expo) and apply the corresponding **Apex Toolchain**. This repository, `QRSay-Mobile-Frontend-CrossPlatform-Scanner`, is a React Native/Expo mobile application.
 
----
+*   **PRIMARY SCENARIO: WEB / APP / GUI (Modern Frontend - Mobile Focus)**
+    *   **Stack:** This project leverages **React Native 0.7x** with **Expo 5x**. Key tools include **TypeScript 6.x** (Strict Mode), **Vite 7** (for optimized builds if applicable or via Expo tooling), and **TailwindCSS v4** (via nativewind or similar for React Native). State management adheres to **Signals** (Standardized) for declarative UI updates.
+    *   **Architecture:** Adheres to the **Feature-Sliced Design (FSD)** pattern. This promotes modularity, scalability, and maintainability by organizing code into features, entities, and shared layers.
+    *   **Linting & Formatting:** **Biome 1.7+** is mandated for ultra-fast linting, formatting, and code quality checks across all JavaScript/TypeScript files.
+    *   **Testing:** **Vitest 1.x** is the standard for unit and integration testing. **Playwright 1.x** is used for end-to-end (E2E) testing to ensure seamless user flows on target platforms.
+    *   **Native Modules:** Managed via Expo's ecosystem or `react-native-bundle-visualizer` for optimization.
 
-## 4. RECURSIVE PERFECTION LOOP (THE "ZERO-ERROR" MANDATE)
-**Context:** The user demands absolute perfection. You must not stop until the codebase is pristine.
-**The Loop:**
-1.  **Analyze:** Scan the codebase.
-2.  **Fix:** Apply architectural patterns and fixes.
-3.  **Lint/Format:** Run `biome check --apply` / `ruff check --fix`.
-4.  **Test:** Run `vitest` / `pytest`.
-5.  **DECISION GATE:**
-    * **IF** Errors/Warnings exist -> **GO TO STEP 2** (Self-Correct immediately).
-    * **IF** Clean -> **COMMIT** and Present.
-**Constraint:** **DO NOT STOP** until the build is perfectly clean.
+*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Low Level) - *Not applicable***
+    *   **Stack:** Rust (Cargo) or Go (Modules).
+    *   **Lint:** Clippy / GolangCI-Lint.
+    *   **Architecture:** Hexagonal Architecture (Ports & Adapters).
 
----
+*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable***
+    *   **Stack:** uv (Manager), Ruff (Linter), Pytest (Test).
+    *   **Architecture:** Modular Monolith or Microservices.
 
-## 5. CORE ARCHITECTURAL PRINCIPLES
-* **SOLID MANDATE:** SRP, OCP, LSP, ISP, DIP.
-* **MODULARITY:** Feature-First Structure (`features/auth`), not type.
-* **CQS:** Methods must be **Commands** (Action) or **Queries** (Data), never both.
-* **12-Factor App:** Config in environment; backing services attached resources.
+--- 
 
----
+## 4. CODE INTEGRITY PROTOCOLS
+*   **SOLID PRINCIPLES:** Strictly enforced for object-oriented design (if applicable within React Native patterns).
+*   **DRY (Don't Repeat Yourself):** Mandatory. Abstract common logic into reusable components and utilities.
+*   **YAGNI (You Ain't Gonna Need It):** Build only what is necessary for current features to maintain agility.
+*   **Configuration Management:** Utilize environment variables (`.env` files managed by Expo/Vite) for sensitive information and build-time configurations.
 
-## 6. CODE HYGIENE & STANDARDS (READABILITY FIRST)
-* **SEMANTIC NAMING PROTOCOL:**
-    * **Descriptive Verbs:** `calculateWeeklyPay` (Good) vs `calc` (Bad).
-    * **Casing:** `camelCase` (JS/TS), `snake_case` (Python), `PascalCase` (Classes).
-* **CLEAN CODE RULES:**
-    * **Verticality:** Optimize for reading down.
-    * **No Nesting:** Use **Guard Clauses** (`return early`).
-    * **DRY & KISS:** Automate repetitive tasks. Keep logic simple.
-    * **Zero Comments:** Code must be **Self-Documenting**. Use comments *only* for "Why".
+--- 
 
----
+## 5. DEVELOPMENT WORKFLOW & COMMANDS
+*   **Repository:** `https://github.com/chirag127/QRSay-Mobile-Frontend-CrossPlatform-Scanner`
+*   **Setup:**
+    bash
+    # 1. Clone the repository
+    git clone https://github.com/chirag127/QRSay-Mobile-Frontend-CrossPlatform-Scanner
+    cd QRSay-Mobile-Frontend-CrossPlatform-Scanner
 
-## 7. RELIABILITY, SECURITY & SUSTAINABILITY
-* **DEVSECOPS PROTOCOL:**
-    * **Zero Trust:** Sanitize **ALL** inputs (OWASP Top 10 2025).
-    * **Supply Chain:** Generate **SBOMs** for all builds.
-    * **Fail Fast:** Throw errors immediately on invalid state.
-    * **Encryption:** Secure sensitive data at rest and in transit.
-* **EXCEPTION HANDLING:**
-    * **Resilience:** App must **NEVER** crash. Wrap critical I/O in `try-catch-finally`.
-    * **Recovery:** Implement retry logic with exponential backoff.
-* **GREEN SOFTWARE:**
-    * **Rule of Least Power:** Choose the lightest tool for the job.
-    * **Efficiency:** Optimize loops ($O(n)$ over $O(n^2)$).
-    * **Lazy Loading:** Load resources only when needed.
+    # 2. Install dependencies using Expo/npm/yarn
+    # Ensure you have Node.js 18+ and Expo CLI installed
+    npx expo install
+    # OR
+    # npm install
+    # OR
+    # yarn install
+    
+*   **Development Server:**
+    *   **Expo Go:** `npx expo start --clear`
+    *   **Build:** `npx expo prebuild` (for native code generation) followed by native build commands (`npx expo run:ios` or `npx expo run:android`).
+*   **Scripts:** (See `package.json` for comprehensive list. Common commands shown below)
+    | Script        | Description                                                   |
+    |---------------|---------------------------------------------------------------|
+    | `dev`         | Start development server with Expo Go.                        |
+    | `lint`        | Run Biome linter and formatter.                               |
+    | `test`        | Execute unit and integration tests with Vitest.               |
+    | `test:e2e`    | Run end-to-end tests with Playwright.                         |
+    | `build:ios`   | Create an iOS production build.
+    | `build:android`| Create an Android production build.
 
----
+--- 
 
-## 8. COMPREHENSIVE TESTING STRATEGY
-* **FOLDER SEPARATION PROTOCOL:**
-    * **Production Purity:** Source folder is for code ONLY.
-    * **Mirror Structure:** Tests reside exclusively in `tests/`.
-* **TESTING PYRAMID (F.I.R.S.T.):**
-    * **Fast:** Tests run in milliseconds.
-    * **Isolated:** No external dependencies (Mock DB/Network).
-    * **Repeatable:** Deterministic results.
-* **COVERAGE MANDATE:**
-    * **1:1 Mapping:** Every source file **MUST** have a corresponding test file.
-    * **Scenario Coverage:** Test **Success**, **Failure**, and **Edge Cases**.
-    * **Zero-Error Standard:** Software must run with 0 console errors.
+## 6. TESTING STRATEGY
+*   **Unit Tests:** Vitest for individual components, hooks, and utility functions. Aim for >80% coverage.
+*   **Integration Tests:** Vitest to test interactions between components and modules.
+*   **End-to-End (E2E) Tests:** Playwright to simulate user interactions on the target platforms (iOS/Android simulators or devices) to validate critical user flows.
 
----
+--- 
 
-## 9. UI/UX AESTHETIC SINGULARITY (2026 STANDARD)
-* **VISUAL LANGUAGE:**
-    * **Style:** Blend **Liquid Glass** + **Neo-Brutalist** + **Material You 3.0**.
-    * **Motion:** **MANDATORY** fluid animations (`transition: all 0.2s`).
-* **PERFORMANCE UX:**
-    * **INP Optimization:** Interaction to Next Paint < 200ms.
-    * **Optimistic UI:** UI updates instantly; server syncs in background.
-* **INTERACTION DESIGN:**
-    * **Hyper-Personalization:** Adapt layouts based on user behavior.
-    * **Micro-interactions:** Every click/hover must have feedback.
-* **HYPER-CONFIGURABILITY:**
-    * **Mandate:** Every feature/color must be user-configurable via Settings.
+## 7. ARCHITECTURAL GUIDELINES
+*   **Feature-Sliced Design (FSD):** Strict adherence to layers (e.g., `app`, `processes`, `pages`, `widgets`, `features`, `entities`, `shared`).
+*   **Component Reusability:** Promote the creation of generic, reusable UI components within the `shared/ui` layer.
+*   **State Management:** Prefer signals or Expo's context API for global state. Local component state for UI-specific logic.
+*   **API Interactions:** Abstract all network requests into dedicated service layers within `entities` or `features`.
 
----
+--- 
 
-## 10. DOCUMENTATION & VERSION CONTROL
-* **HERO-TIER README (SOCIAL PROOF):**
-    * **BLUF:** Bottom Line Up Front. Value prop first.
-    * **Live Sync:** Update README **IN THE SAME TURN** as code changes.
-    * **Visuals:** High-Res Badges (Shields.io), ASCII Architecture Trees.
-    * **AI Replication Block:** Include `<details>` with stack info for other agents.
-    * **Social Proof:** Explicitly ask users to **"Star ⭐ this Repo"**.
-* **ADVANCED GIT OPERATIONS:**
-    * **Context Archaeology:** Use `git log`/`git blame`.
-    * **Conventional Commits:** Strict format (`feat:`, `fix:`, `docs:`).
-    * **Semantic Versioning:** Enforce `Major.Minor.Patch`.
+## 8. SECURITY MANDATES
+*   **Dependency Scanning:** Regularly run `npm audit` or `yarn audit`. Utilize tools like Snyk or Dependabot for automated vulnerability detection.
+*   **Secrets Management:** Never commit API keys or secrets directly. Use `.env` files and environment variables. Consider secure storage solutions for sensitive production data.
+*   **Input Validation:** Sanitize and validate all user inputs to prevent injection attacks.
+*   **Secure QR Code Handling:** Ensure QR code data is processed securely, avoiding execution of malicious payloads.
 
----
+--- 
 
-## 11. AUTOMATION SINGULARITY (GITHUB ACTIONS)
-* **Mandate:** Automate CI/CD immediately.
-* **Workflows:**
-    1.  **Integrity:** Lint + Test on Push.
-    2.  **Security:** Audit dependencies + SBOM.
-    3.  **Release:** Semantic Versioning + Artifact Upload.
-    4.  **Deps:** Auto-merge non-breaking updates.
+## 9. DEPLOYMENT & CI/CD
+*   **CI/CD Pipeline:** Configured via `.github/workflows/ci.yml`. Automates linting, testing, and potentially builds upon pull requests and merges to the main branch.
+*   **Deployment Platform:** Expo Application Services (EAS) for streamlined builds and distribution to app stores.
 
----
+--- 
 
-## 12. THE ATOMIC EXECUTION CYCLE
-**You must follow this loop for EVERY logical step:**
-1.  **Audit:** Scan state (`ls -R`) & History (`git log`).
-2.  **Research:** Query Best Practices & Trends.
-3.  **Plan:** Architect via `clear-thought-two`.
-4.  **Act:** Fix Code + Polish + Add Settings + Write Tests.
-5.  **Automate:** Create/Update CI/CD YAMLs.
-6.  **Docs:** Update `README.md` (Replication Ready).
-7.  **Verify:** Run Tests & Linters.
-8.  **REITERATE:** If *any* error/warning exists, fix it immediately.
-    **DO NOT STOP** until the build is perfectly clean.
-9.  **Commit:** `git commit` immediately (Only when clean).
+## 10. CONTRIBUTING & CODE OF CONDUCT
+Refer to `.github/CONTRIBUTING.md` for detailed contribution guidelines and `.github/CODE_OF_CONDUCT.md` for community standards.
+
+--- 
+
+## 11. ISSUE & PR TEMPLATES
+Utilize provided templates in `.github/ISSUE_TEMPLATE/` and `.github/PULL_REQUEST_TEMPLATE.md` for structured reporting and submissions.
+
+--- 
+
+## 12. LICENSE & LEGAL
+This project is licensed under the **CC BY-NC 4.0** license. Refer to the `LICENSE` file for full details.
+
+--- 
+
+## 13. AGENT COMMUNICATION PROTOCOL
+All interactions must be precise, goal-oriented, and adhere to the defined protocols. Use `linkup` for external research, `docfork` for API validation, and `clear-thought-two` for complex reasoning before execution. Always confirm task completion and output standard compliance.
