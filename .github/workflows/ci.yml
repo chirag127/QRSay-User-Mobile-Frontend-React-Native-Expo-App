@@ -1,0 +1,88 @@
+name: CI/CD Pipeline - Mobile Verification
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+    types: [opened, synchronize, reopened]
+
+env:
+  NODE_VERSION: '20'
+  PNPM_VERSION: '8'
+
+jobs:
+  quality_gates:
+    name: "♞️ Code Quality Checks"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "⬇️ Checkout Repository"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "⚙️ Setup pnpm"
+        uses: pnpm/action-setup@v3
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: "⚒️ Setup Node.js v${{ env.NODE_VERSION }}"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: "📦 Install Dependencies"
+        run: pnpm install --frozen-lockfile
+
+      - name: Linting & Formatting Check (Biome)
+        # Apex Standard for TS/JS quality control
+        run: pnpm biome check --linter --formatter --max-warnings 0 .
+
+      - name: "🔍 TypeScript Strict Type Check"
+        run: pnpm tsc --noEmit
+
+      - name: "⚗️ Run Unit & Component Tests (Vitest/Jest)"
+        run: pnpm test:unit --coverage 
+
+      - name: "📊 Upload Coverage Report to Codecov"
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true
+
+  expo_configuration_check:
+    name: "📱 Expo Configuration Sanity Check"
+    needs: quality_gates
+    runs-on: ubuntu-latest
+    steps:
+      - name: "⬇️ Checkout Repository"
+        uses: actions/checkout@v4
+
+      - name: "⚙️ Setup pnpm"
+        uses: pnpm/action-setup@v3
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: "⚒️ Setup Node.js v${{ env.NODE_VERSION }}"
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: "📦 Install Dependencies"
+        run: pnpm install --frozen-lockfile
+
+      - name: Ensure Expo SDK is Installed Globally
+        run: npm install -g expo-cli
+
+      - name: Verify Expo Build Configuration Integrity (Prebuild Dry Run)
+        # This ensures all native dependencies and configuration files are valid before a full build.
+        run: npx expo prebuild --clean --platform all --dry-run
+        env:
+          EXPO_NO_DOTENV: 1
