@@ -1,47 +1,42 @@
-# Node modules
-node_modules/
+# Dependency Folders
+node_modules
+/build
+/dist
 
-# Expo build artifacts
-.expo
-.DS_Store
-
-# iOS/Android platform-specific files
-ios/build
-android/build
-
-# Build artifacts (Expo)
-dist/
-build/
-
-# Temporary files
-.tmp/
-.cache/
-coverage/
-
-# IDE-specific files
-.vscode/
-*.iml
-.idea/
-
-# Logs
+# Expo
+.expo/
 *.log
 
-# Yarn/npm lock files
-package-lock.json
-yarn.lock
+# Metro Bundler
+.turbo/
 
-# Misc
-.env
-.env.local
+# TypeScript / JavaScript
+*.tsbuildinfo
+/coverage
+/temp
 
-# Ignore Expo specific files
-.expo-shared/
+# IDE and System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
-# Ignore native files
-android/app/build
-ios/Runner.xcodeproj/project.pbxproj
-ios/Pods/
+# npm cache
+npm-debug.log*
 
-# Ignore TypeScript build artifacts
-*.js
-*.map
+# Native Build Artifacts (Android/iOS structure)
+/android/build
+/android/.gradle
+/ios/build
+
+# React Native Cache
+*.swp
+*.swo
+
+# Storybook
+.storybook/cache
+.storybook/dist
+
+# Build output artifacts
+/out
+/release
